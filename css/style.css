@@ -1,0 +1,12 @@
+label span {
+  width: 5.5em;
+  display: inline-block;
+}
+
+label input {
+  width: 12em;
+}
+
+p {
+  margin: 0;
+}
