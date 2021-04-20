@@ -11,50 +11,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (fizz.value.match(/[a-z]+/i) || buzz.value.match(/[a-z]+/i) ){
       output.appendChild(p);
-      return false;
+      return;
     }
 
     else if(fizz.value.match(/^-?[0-9]+\.[0-9]+$/) || buzz.value.match(/^-?[0-9]+\.[0-9]+$/)) {
       output.appendChild(p);
-      return false;
+      return;
     }
 
-    else if(fizz.value == "" || buzz.value == "") {
+    else if(fizz.value === "" || buzz.value === "") {
       output.appendChild(p);
-      return false;
+      return;
     }
 
     let fizzValue = "";
     let buzzValue = "";
-    const fizzP = [];
-    const buzzP = [];
-    for(let i = 1, x = 1; fizzValue < 100, buzzValue < 100; i++, x++) {
 
-      fizzP[i] = document.createElement("p");
-      buzzP[i] = document.createElement("p");
+    for(let i = 1, x = 1; fizzValue < 100, buzzValue < 100; i++, x++) {
       
       fizzValue = (fizz.value)*i;
       buzzValue = (buzz.value)*x;
 
       if(fizzValue%(fizz.value) === 0 && fizzValue%(buzz.value) === 0){
-        fizzP[i].innerText = `FizzBuzz${fizzValue}`;
-        output.appendChild(fizzP[i]);
-        buzzP[i].innerText = `Buzz${buzzValue}`;
-        output.appendChild(buzzP[i]);
+        const fizz = document.createElement("p");
+        fizz.innerText = `FizzBuzz${fizzValue}`;
+        output.appendChild(fizz);
+        const buzz = document.createElement("p");
+        buzz.innerText = `Buzz${buzzValue}`;
+        output.appendChild(buzz);
       }
       
       else if(buzzValue%(fizz.value) === 0 && buzzValue%(buzz.value) === 0) {
-        fizzP[i].innerText = `Fizz${fizzValue}`;
-        output.appendChild(fizzP[i]);
-        buzzP[i].innerText = `FizzBuzz${buzzValue}`;
-        output.appendChild(buzzP[i]);
+        const fizz = document.createElement("p");
+        fizz.innerText = `Fizz${fizzValue}`;
+        output.appendChild(fizz);
+        const buzz = document.createElement("p");
+        buzz.innerText = `FizzBuzz${buzzValue}`;
+        output.appendChild(buzz);
       }
       
       else {
-        fizzP[i].innerText = `Fizz${fizzValue}`;
-        output.appendChild(fizzP[i]);
-        buzzP[i].innerText = `Buzz${buzzValue}`;
-        output.appendChild(buzzP[i]);
+        const fizz = document.createElement("p");
+        fizz.innerText = `Fizz${fizzValue}`;
+        output.appendChild(fizz);
+        const buzz = document.createElement("p");
+        buzz.innerText = `Buzz${buzzValue}`;
+        output.appendChild(buzz);
       }
     }
   });
